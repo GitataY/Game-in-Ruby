@@ -131,3 +131,8 @@ class Game
     end
 
 end 
+
+# instantiate Game and play game
+
+game = Game.new
+game.play_game
