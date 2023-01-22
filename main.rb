@@ -69,6 +69,21 @@ class Game
             end
         end
     end
-    
+
+    def three_down
+        flat = @board.flatten
+        flat.each_with_index do |v, i|
+            if v == 'X' && flat[i + 3] == 'X' && flat[i + 6] == 'X'
+                @@winner = 'X'
+                @@turn_count = 10
+            elsif v == 'O' && flat[i + 3] == 'O' && flat[i + 6] == 'O'
+                @@winner = 'O'
+                @@turn_count = 10
+            else
+                nil
+            end
+        end
+    end
+
 
 end
