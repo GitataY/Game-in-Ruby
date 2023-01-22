@@ -99,7 +99,17 @@ class Game
             nil
         end
     end
-    
+
+    def declare_result(symbol)
+        case symbol
+        when 'O'
+            puts "#{@player_one_name} wins the game!"
+        when 'X'
+            puts "#{@player_two_name} wins the game!"
+        else
+            puts "It's a tie!"
+        end
+    end
 
 
 end
