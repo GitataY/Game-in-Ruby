@@ -85,5 +85,21 @@ class Game
         end
     end
 
+    def three_diagonal
+        center_val = @board[1][1]
+        if center_val == 'X' || center_val == 'O'
+            if @board[0][0] && @board[2][2] == center_val
+                @@winner = center_val
+                @@turn_count = 10
+            elsif @board[2][0] && @board[0][2] == center_val
+                @@winner = center_val
+                @@turn_count = 10
+            end
+        else
+            nil
+        end
+    end
+    
+
 
 end
