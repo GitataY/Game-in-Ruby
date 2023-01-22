@@ -25,4 +25,30 @@ class Game
         puts "#{board[2][0]} | #{board[2][1]} | #{board[2][2]}"
     end
 
+    def player_turn(turn)
+        if turn.odd?
+            player_choice(player_one_name, 'O')
+        else
+            player_choice(player_two_name, 'X')
+        end
+    end
+
+    def player_choice(player, symbol)
+        puts "#{player} please enter your coordinates (0..2) separated by a space"
+        input = gets.chomp
+        input_array = input.split
+        coord_one = input_array[0].to_i
+        coord_two = input_array[1].to_i
+
+        until input.match(/\s/) && coord_one.between?(0, 2) && coord_two.between?(0, 2) && @board[coord_one][coord_two] == '_'
+            puts 'Please enter valid coordinates for an empty space in the grid'
+            input = gets.chomp
+            input_array = input.split
+            coord_one = input_array[0].to_i
+            coord_two = input_array[1].to_i
+        end
+
+        add_to_board(coord_one, coord_two, symbol)
+    end
+
 end
